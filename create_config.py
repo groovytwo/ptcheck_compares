@@ -17,12 +17,15 @@ config.set('dataframe', 'excel_df_filter', 'sheet')
 
 config.add_section('analog_sheet')
 config.set('analog_sheet', 'name', 'Analog')
+config.set('analog_sheet', 'delete_col', '[13, 11, 10, 8, 7, 3, 0]')
 
 config.add_section('status_sheet')
 config.set('status_sheet', 'name', 'Status')
+config.set('status_sheet', 'delete_col', '[12, 9, 8, 5, 4, 3, 0]')
 
 config.add_section('rate_sheet')
 config.set('rate_sheet', 'name', 'Rate')
+config.set('rate_sheet', 'delete_col', '[13, 11, 9, 7, 3, 0]')
 
 with open(r"config.ini", 'w') as configfile:
     config.write(configfile)
