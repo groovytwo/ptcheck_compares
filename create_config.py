@@ -7,6 +7,8 @@ config.set('file', 'assets_path', './assets')
 config.set('file', 'config_path', './config')
 config.set('file', 'doc_path', './documentation')
 config.set('file', 'readme', 'Readme.pdf')
+config.set('file', 'ptcheck1_path', 'H_SK_PRD.xlsx')
+config.set('file', 'ptcheck2_path', 'H_SK_TST.xlsx')
 
 config.add_section('dataframe')
 config.set('dataframe', '# section Purpose', 'General Dataframe Settings')
