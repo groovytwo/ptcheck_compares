@@ -57,8 +57,8 @@ class CreateDiffDataframe:
 			new_df = dataframe_difference(df1, df2)
 			new_df['_dupes'] = new_df[key_col].duplicated(keep=False).astype(int).astype(str)
 			new_df = new_df.replace({'_dupes': {'0': "no", '1': "yes"}})
-			new_df = new_df.replace('left_only', cfg.file.ptcheck1_tag)
-			new_df = new_df.replace('right_only', cfg.file.ptcheck2_tag)
+			new_df = new_df.replace('left_only', cfg.file.ptcheck_new_tag)
+			new_df = new_df.replace('right_only', cfg.file.ptcheck_old_tag)
 			new_df = new_df.sort_values(['_dupes', key_col])
 			self.df[df_cfg.name] = new_df
 

@@ -17,3 +17,12 @@ def common_var_values_from_list_instance_names(list_object_names, source, var_na
 		my_final_var = (getattr(my_object, var_name))
 		final_list.append(my_final_var)
 	return final_list
+
+def fetch_sister_val_in_cfg(cfg_obj, scan_list, known_key, known_value, unknown_key):
+	# Use this to parse through a series of subgroups to fina a sister value
+	for subgroup_name in scan_list:
+		subgroup = getattr(cfg_obj, subgroup_name)
+		value = getattr(subgroup, known_key)
+		if value == known_value:
+			return getattr(subgroup, unknown_key)
+
