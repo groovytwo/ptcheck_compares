@@ -1,4 +1,5 @@
-from my_dataframe import CreateDictDataframe, compare_cols
+from my_dataframe import CreateDictDataframe, CreateDiffDataframe
+from my_excel import CreateExcel
 from my_initialize import ConfigParser
 
 cfg = ConfigParser()
@@ -6,7 +7,7 @@ cfg = ConfigParser()
 sheet1 = CreateDictDataframe(cfg, cfg.file.ptcheck1_path)
 sheet2 = CreateDictDataframe(cfg, cfg.file.ptcheck2_path)
 
-diff_df = compare_cols(sheet1, sheet2, cfg)
+diff_df = CreateDiffDataframe(sheet1, sheet2, cfg)
 
-print("Ending")
+CreateExcel(diff_df.df)
 

@@ -33,7 +33,7 @@ class CreateDictDataframe:
 			# df.drop(index=df.index[0], axis=0, inplace=True)
 			# Drop rows that are all 'nan'
 			df = df.dropna(axis=0, how='all')
-			# df.reset_index(drop=True, inplace=True)
+			df.reset_index(drop=True, inplace=True)
 
 			self.dict_df[df_cfg.name] = df
 
@@ -46,18 +46,19 @@ class CreateDictDataframe:
 		self.remote_name = remote_string.group(1)
 		self.remote_desc = remote_string.group(2)
 
-def compare_cols(sheet1, sheet2, cfg):
-	diff_df = {}
-	for df_cfg in cfg.dataframe.df_list:
-		df_cfg = getattr(cfg, df_cfg)
-		key_col = df_cfg.col_names[df_cfg.key_col]
-		df1 = sheet1.dict_df[df_cfg.name]
-		df2 = sheet2.dict_df[df_cfg.name]
-		new_df = dataframe_difference(df1, df2)
-		new_df['_dupes'] = new_df[key_col].duplicated(keep=False).astype(int).astype(str)
-		new_df = new_df.replace({'_dupes': {'0': "no", '1': "yes"}})
-		new_df = new_df.replace('left_only', cfg.file.ptcheck1_tag)
-		new_df = new_df.replace('right_only', cfg.file.ptcheck2_tag)
-		new_df = new_df.sort_values(key_col)
-		diff_df[df_cfg.name] = new_df
-	return diff_df
+class CreateDiffDataframe:
+	def __init__(self, sheet1, sheet2, cfg):
+		self.df = {}
+		for df_cfg in cfg.dataframe.df_list:
+			df_cfg = getattr(cfg, df_cfg)
+			key_col = df_cfg.col_names[df_cfg.key_col]
+			df1 = sheet1.dict_df[df_cfg.name]
+			df2 = sheet2.dict_df[df_cfg.name]
+			new_df = dataframe_difference(df1, df2)
+			new_df['_dupes'] = new_df[key_col].duplicated(keep=False).astype(int).astype(str)
+			new_df = new_df.replace({'_dupes': {'0': "no", '1': "yes"}})
+			new_df = new_df.replace('left_only', cfg.file.ptcheck1_tag)
+			new_df = new_df.replace('right_only', cfg.file.ptcheck2_tag)
+			new_df = new_df.sort_values(key_col)
+			self.df[df_cfg.name] = new_df
+
