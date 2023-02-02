@@ -7,9 +7,9 @@ config.set('file', 'assets_path', './assets')
 config.set('file', 'config_path', './config')
 config.set('file', 'doc_path', './documentation')
 config.set('file', 'readme', 'Readme.pdf')
-config.set('file', 'ptcheck_new_path', 'H_SK_PRD.xlsx')
+config.set('file', 'ptcheck_new_path', r'C:\Users\aellery\OneDrive - Pembina Pipeline Corporation\Desktop\*.xlsx')
 config.set('file', 'ptcheck_new_tag', 'PRD')
-config.set('file', 'ptcheck_old_path', 'H_SK_TST.xlsx')
+config.set('file', 'ptcheck_old_path', r'C:\Users\aellery\OneDrive - Pembina Pipeline Corporation\Desktop\*.xlsx')
 config.set('file', 'ptcheck_old_tag', 'TST')
 
 config.add_section('dataframe')
@@ -46,16 +46,16 @@ config.set('rate_sheet', 'dupes_col', '11')
 
 config.add_section('color')
 config.set('color', '# section Purpose', 'Excel Color Codes')
-config.set('color', 'header_bg', 'FFE66D') # gold
-config.set('color', 'header_txt', '000000')  # black
-config.set('color', 'addition_bg', 'CAFFBF') # green
-config.set('color', 'addition_txt', '00642D')  # dark green
-config.set('color', 'removal_bg', 'FFADAD') # red
-config.set('color', 'removal_txt', '700000')  # dark red
-config.set('color', 'edit1_bg', 'FFD6A5') # burnt orange
-config.set('color', 'edit2_bg', 'FBF8CC') # pale yellow
-config.set('color', 'edit_new_txt', '00823B')  # dark green
-config.set('color', 'edit_old_txt', 'C00000')  # dark brown
+config.set('color', 'header_bg', 'abb3ba')
+config.set('color', 'header_txt', '000000') 
+config.set('color', 'addition_bg', 'c6f0c2') 
+config.set('color', 'addition_txt', '000000') 
+config.set('color', 'removal_bg', 'f0c2c2') 
+config.set('color', 'removal_txt', '000000')
+config.set('color', 'edit1_bg', 'FFFFFF')
+config.set('color', 'edit2_bg', 'e4edf6')
+config.set('color', 'edit_new_txt', '184c7f') 
+config.set('color', 'edit_old_txt', 'b22b08') 
 
 with open(r"config.ini", 'w') as configfile:
 	config.write(configfile)
