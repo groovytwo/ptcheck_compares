@@ -59,6 +59,6 @@ class CreateDiffDataframe:
 			new_df = new_df.replace({'_dupes': {'0': "no", '1': "yes"}})
 			new_df = new_df.replace('left_only', cfg.file.ptcheck1_tag)
 			new_df = new_df.replace('right_only', cfg.file.ptcheck2_tag)
-			new_df = new_df.sort_values(key_col)
+			new_df = new_df.sort_values(['_dupes', key_col])
 			self.df[df_cfg.name] = new_df
 
