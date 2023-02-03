@@ -14,12 +14,12 @@ class CreateExcel:
 		writer = pd.ExcelWriter("output.xlsx", engine='xlsxwriter')
 		workbook = writer.book
 
-		format1 = workbook.add_format({'bg_color': cfg.color.addition_bg, 'font_color': cfg.color.addition_txt})
-		format2 = workbook.add_format({'bg_color': cfg.color.removal_bg, 'font_color': cfg.color.removal_txt})
-		format3 = workbook.add_format({'bg_color': cfg.color.edit1_bg, 'font_color': cfg.color.edit_new_txt})
-		format4 = workbook.add_format({'bg_color': cfg.color.edit1_bg, 'font_color': cfg.color.edit_old_txt})
-		format5 = workbook.add_format({'bg_color': cfg.color.edit2_bg, 'font_color': cfg.color.edit_new_txt})
-		format6 = workbook.add_format({'bg_color': cfg.color.edit2_bg, 'font_color': cfg.color.edit_old_txt})
+		format2 = workbook.add_format({'bg_color': cfg.color.addition_bg, 'font_color': cfg.color.addition_txt})
+		format1 = workbook.add_format({'bg_color': cfg.color.removal_bg, 'font_color': cfg.color.removal_txt})
+		format3 = workbook.add_format({'bg_color': cfg.color.edit1_bg, 'font_color': cfg.color.edit_old_txt})
+		format4 = workbook.add_format({'bg_color': cfg.color.edit1_bg, 'font_color': cfg.color.edit_new_txt})
+		format5 = workbook.add_format({'bg_color': cfg.color.edit2_bg, 'font_color': cfg.color.edit_old_txt})
+		format6 = workbook.add_format({'bg_color': cfg.color.edit2_bg, 'font_color': cfg.color.edit_new_txt})
 
 		edit_color = 'Edit1'
 
